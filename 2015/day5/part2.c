@@ -4,13 +4,6 @@
 #include "advc_utils.h"
 #include "def.h"
 
-static inline int
-hash(unsigned char h, unsigned char l)
-{
-	int r = (h - 'a') << 5;
-	return (r | (l - 'a'));
-}
-
 void
 main_part2()
 {
@@ -25,14 +18,14 @@ main_part2()
 			if (buf[i-1] == buf[i+1])
 				pivot = true;
 
-			h = hash(buf[i-1], buf[i]);
+			h = char_hash(2, &buf[i-1]);
 			if (pairs[h] == 0)
 				pairs[h] = i;
 			else if (pairs[h] != i-1)
 				pair = true;
 		}
 
-		h = hash(buf[i-1], buf[i]);
+		h = char_hash(2, &buf[i-1]);
 		if (pivot && (pair || pairs[h] != 0 && pairs[h] != i-1))
 			nice++;
 	}

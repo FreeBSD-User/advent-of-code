@@ -34,7 +34,7 @@ getbuf()
 		err(1, "fstat()");
 	len = sb.st_size;
 
-	buf = s_mallocx(len + 1);
+	buf = s_malloc(len + 1);
 	(void)fread(buf, 1, len, stdin);
 
 	if (ferror(stdin))
