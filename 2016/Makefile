@@ -1,3 +1,3 @@
-SUBDIR+= 2015 2016
+SUBDIR+= day1
 
 .include <bsd.subdir.mk>

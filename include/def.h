@@ -12,4 +12,12 @@ struct coord
 	int y;
 };
 
+#ifndef min
+#define min(x, y) ((y) < (x) ? (y) : (x))
+#endif
+#ifndef max
+#define max(x, y) ((y) > (x) ? (y) : (x))
+#endif
+
+
 #endif
