@@ -19,9 +19,7 @@ main_part2()
 	uint32_t i;
 	for (i = 0; i < UINT32_MAX; i++) {
 		snprintf(buf+len, BUFSIZ-len, "%d", i);
-		MD5Init(&ctx);
-		MD5Update(&ctx, buf, strlen(buf));
-		MD5End(&ctx, digest);
+		md5_digest(buf, digest);
 		if (strncmp(digest, "000000", 6) == 0)
 			break;
 	}
